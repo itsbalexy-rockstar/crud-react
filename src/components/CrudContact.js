@@ -10,8 +10,8 @@ const CrudContact = ({contacto, setDataToEdit, deleteContact}) => {
       <td>{location}</td>
       <td>{number}</td>
       <td>
-        <button onClick={() => setDataToEdit(contacto)}>Edit</button>
-        <button onClick={() => deleteContact(id)}>Remove</button>
+        <button className="edit" onClick={() => setDataToEdit(contacto)}>Edit</button>
+        <button className="remove" onClick={() => deleteContact(id)}>Remove</button>
       </td>
     </tr>
   );

@@ -21,14 +21,22 @@ const CrudApp = () => {
   }
 
   const deleteContact = (id) => {
-
+    let isDelete = window.confirm('Are you sure?')
+    if(isDelete){
+      let newInfo = db.filter(el => el.id !== id);
+      setDb(newInfo)
+    }else{
+      return;
+    }
   }
 
   return (
       <>
         <h2>Foreigners in Colombia</h2> 
-        <CrudForm createContact={createContact} updateContact={updateContact} dataToEdit={dataToEdit} setDataToEdit={setDataToEdit} />
-        <CrudTable data={db} deleteContact={deleteContact} setDataToEdit={setDataToEdit} />
+        <article className='grid-1-2'>
+          <CrudForm createContact={createContact} updateContact={updateContact} dataToEdit={dataToEdit} setDataToEdit={setDataToEdit} />
+          <CrudTable data={db} deleteContact={deleteContact} setDataToEdit={setDataToEdit} />
+        </article>
       </>
   )
 }
