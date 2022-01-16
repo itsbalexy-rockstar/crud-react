@@ -1,14 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CrudForm from './CrudForm'
+import CrudTable from './CrudTable'
+import { database } from '../db/db';
+
+const initialDB = database;
 
 const CrudApp = () => {
-    return (
-        <>
-          <h2>CrudApp</h2> 
-          <CrudForm />
-          <table></table> 
-        </>
-    )
+
+  const [db, Setdb] = useState(initialDB)
+
+  return (
+      <>
+        <h2>Shifts - Bry EPS</h2> 
+        <CrudForm />
+        <CrudTable data={db}/>
+      </>
+  )
 }
 
 export default CrudApp
