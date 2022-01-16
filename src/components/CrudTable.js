@@ -1,8 +1,7 @@
 import React from 'react'
-import CrudShift from './CrudShift'
+import CrudContact from './CrudContact'
 
-const CrudTable = ({data}) => {
-    console.log(data)
+const CrudTable = ({data, setDataToEdit, deleteContact}) => {
     return (
         <>
             <h3>Data</h3>
@@ -11,12 +10,12 @@ const CrudTable = ({data}) => {
                     <tr>
                         <th>Name</th>
                         <th>Location</th>
-                        <th>Shift</th>
+                        <th>Number</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {data.length === 0 ? <tr><td colSpan='3'>empty</td></tr> : data.map((el) => <CrudShift key={el.id} shift={el} />)}
+                    {data.length === 0 ? <tr><td colSpan='3'>empty</td></tr> : data.map((el) => <CrudContact setDataToEdit={setDataToEdit} deleteContact={deleteContact}  key={el.id} contacto={el} />)}
                 </tbody>
             </table>
         </>
